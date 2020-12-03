@@ -1,27 +1,28 @@
 # makeCacheMatrix function ----
-## makeCacheMatrix is a function used to cache a Matrix
+## makeCacheMatrix is a function used to create a matrix that can cache its inverse
 ## Argument 'x' is a matrix
 ## Return a list of function to set the value of the matrix, get the value of the matrix, set the value of the inverse of the matrix and get the value of the matrix
 makeCacheMatrix <- function(x = matrix()) {
-  # initialize the object 
+  
+  # initialize the inverted matrix 
   matInv <- NULL
   
-  # set the object into another environment
+  # set the matrix into another environment
   set <- function(mat) {
     x <<- mat
     matInv <<- NULL
   }
   
-  # get the current object
+  # get the current matrix
   get <- function() x
   
-  # set the inverse object into another environment
+  # set the inverted matrix into another environment
   setinverse <- function(solve) matInv <<- solve
   
-  # get the current inverse object
+  # get the current inverted matrix
   getinverse <- function() matInv
   
-  # return the list of functions
+  # return the list of functions to set/get the matrix and its inverse
   list(set = set, 
        get = get,
        setinverse = setinverse,
